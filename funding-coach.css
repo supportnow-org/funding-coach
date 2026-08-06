@@ -20,7 +20,8 @@ h1,h2,h3,h4{ color:var(--ink); font-weight:700; letter-spacing:-.02em; line-heig
 p{ margin:0 0 1rem; }
 p:last-child{ margin-bottom:0; }
 
-.container{ max-width:1180px; }
+/* .container is left at Bootstrap's default so the pill and footer line up with
+   the other portfolio apps. Content that needs to be narrower says so itself. */
 .narrow{ max-width:760px; margin-left:auto; margin-right:auto; }
 .eyebrow{
   font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.12em;
