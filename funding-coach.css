@@ -1,0 +1,350 @@
+/* ──────────────────────────────────────────────
+   SupportNow · FundingCoach — page styles.
+   shell.css owns the nav and the footer. Everything here is the page
+   between them, following the conventions in the advocacy marketplace's
+   intake.css / directory.css so the two apps read as one system.
+   ────────────────────────────────────────────── */
+
+:root{
+  --give:#059669; --give-dark:#047857; --give-tint:#ecfdf5;
+  --amber:#d97706; --amber-tint:#fffbeb;
+  --warm-1:#fff6ef; --warm-2:#fdf1f4; --warm-3:#eef6fe;
+  --shadow:0 1px 3px rgba(17,24,39,.05);
+  --shadow-md:0 10px 30px -16px rgba(27,47,128,.24);
+  --shadow-lg:0 24px 60px -20px rgba(27,47,128,.28);
+  --radius:20px;
+}
+
+body{ font-size:16.5px; line-height:1.6; }
+h1,h2,h3,h4{ color:var(--ink); font-weight:700; letter-spacing:-.02em; line-height:1.14; }
+p{ margin:0 0 1rem; }
+p:last-child{ margin-bottom:0; }
+
+.container{ max-width:1180px; }
+.narrow{ max-width:760px; margin-left:auto; margin-right:auto; }
+.eyebrow{
+  font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.12em;
+  color:var(--brand); display:inline-flex; align-items:center; gap:8px;
+}
+.text-balance{ text-wrap:balance; }
+
+/* Anchor targets clear the sticky pill */
+section[id]{ scroll-margin-top:88px; }
+
+/* ── Buttons ── */
+.btn-fc{
+  display:inline-flex; align-items:center; gap:10px;
+  font-weight:600; font-size:15.5px; border-radius:50px;
+  padding:14px 28px; border:1.5px solid transparent;
+  transition:.18s; white-space:nowrap;
+}
+.btn-fc-lg{ padding:17px 36px; font-size:16.5px; }
+.btn-fc-primary{ background:var(--brand); color:#fff; }
+.btn-fc-primary:hover{ background:var(--brand-dark); color:#fff; transform:translateY(-1px); box-shadow:0 12px 26px -12px var(--brand); }
+.btn-fc-ghost{ background:#fff; color:var(--ink); border-color:var(--border); }
+.btn-fc-ghost:hover{ border-color:var(--brand); color:var(--brand); }
+
+/* ══════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════ */
+.hero{
+  padding:56px 0 44px; text-align:center;
+  background:
+    radial-gradient(1100px 460px at 10% -20%, var(--warm-1) 0%, transparent 55%),
+    radial-gradient(1000px 460px at 95% -10%, var(--warm-3) 0%, transparent 55%);
+}
+.hero h1{ font-size:clamp(2.1rem,4.4vw,3.15rem); margin:16px 0 18px; }
+.hero .byline{ font-size:clamp(1.02rem,1.5vw,1.2rem); color:var(--body); max-width:660px; margin:0 auto 30px; }
+.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+.hero-note{ margin-top:18px; font-size:14px; color:var(--secondary); }
+.hero-note i{ color:var(--give); margin-right:7px; }
+
+/* ── Partner logos ── */
+.trust{ padding:14px 0 52px; }
+.trust p{
+  text-align:center; font-size:13px; font-weight:600; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); margin:0 0 22px;
+}
+.trust-logos{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+  gap:26px 52px;
+}
+.trust-logos img{
+  height:52px; width:auto; max-width:160px; object-fit:contain;
+  filter:grayscale(1); opacity:.62; transition:.2s;
+}
+.trust-logos img:hover{ filter:none; opacity:1; }
+
+/* ══════════════════════════════════════════════
+   SECTION SHELL
+   ══════════════════════════════════════════════ */
+.sec{ padding:70px 0; }
+.sec-tint{ background:var(--card); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light); }
+.sec-head{ max-width:700px; margin:0 0 42px; }
+.sec-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+.sec-head h2{ font-size:clamp(1.6rem,2.9vw,2.25rem); margin:14px 0 12px; }
+.sec-head p{ color:var(--secondary); font-size:1.04rem; }
+
+/* ══════════════════════════════════════════════
+   ABOUT · what FundingCoach is
+   ══════════════════════════════════════════════ */
+.pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.pillar{
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:28px 26px; box-shadow:var(--shadow);
+}
+.sec-tint .pillar{ background:var(--bg); }
+.pillar i{
+  width:46px; height:46px; border-radius:13px; margin-bottom:16px;
+  background:var(--brand-bg); color:var(--brand-dark);
+  display:flex; align-items:center; justify-content:center; font-size:19px;
+}
+.pillar h3{ font-size:1.12rem; margin:0 0 8px; }
+.pillar p{ font-size:15px; color:var(--secondary); }
+
+/* ══════════════════════════════════════════════
+   HOW MATCHING WORKS
+   ══════════════════════════════════════════════ */
+.steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; counter-reset:step; }
+.step{ position:relative; padding-top:52px; }
+.step::before{
+  counter-increment:step; content:counter(step);
+  position:absolute; top:0; left:0;
+  width:38px; height:38px; border-radius:50%;
+  background:var(--brand); color:#fff;
+  font-weight:700; font-size:15px;
+  display:flex; align-items:center; justify-content:center;
+}
+/* the rule joins the numbers, so it stops before the last one */
+.step:not(:last-child)::after{
+  content:''; position:absolute; top:19px; left:50px; right:-22px;
+  height:2px; background:var(--border);
+}
+.step h3{ font-size:1.06rem; margin:0 0 7px; }
+.step p{ font-size:14.7px; color:var(--secondary); }
+
+/* ══════════════════════════════════════════════
+   THE COACHING NETWORK
+   ══════════════════════════════════════════════ */
+.coaches{ display:grid; grid-template-columns:repeat(auto-fit,minmax(232px,1fr)); gap:18px; }
+.coach{
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  display:flex; flex-direction:column;
+  overflow:hidden; /* so the header's corners follow the card radius */
+  transition:.2s;
+}
+.coach:hover{ box-shadow:var(--shadow-md); transform:translateY(-2px); }
+.coach.is-founding{ border-color:var(--brand-light); }
+
+/* Edge to edge, and the first thing read: has this person done it before. */
+.coach-head{
+  display:flex; align-items:baseline; gap:6px;
+  padding:10px 18px;
+  background:var(--border-light); border-bottom:1px solid var(--border);
+}
+.coach-head b{ font-size:16px; font-weight:700; color:var(--ink); }
+.coach-head span{ font-size:12.5px; font-weight:600; color:var(--secondary); }
+.coach.is-founding .coach-head{ background:var(--brand-bg); border-bottom-color:#cfe4fa; }
+.coach.is-founding .coach-head b,
+.coach.is-founding .coach-head span{ color:var(--brand-dark); }
+
+.coach-body{ display:flex; flex-direction:column; flex:1; padding:17px 18px 19px; }
+
+.coach-top{ display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+.coach-av{
+  width:44px; height:44px; border-radius:50%; flex-shrink:0;
+  object-fit:cover; background:var(--brand-bg);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size:16px; color:var(--brand-dark);
+}
+.coach-av.tone-b{ background:#fdf1f4; color:#a63a5c; }
+.coach-av.tone-c{ background:var(--give-tint); color:var(--give-dark); }
+.coach-av.tone-d{ background:var(--amber-tint); color:#8a5a08; }
+.coach-name{ font-size:1rem; font-weight:700; color:var(--ink); line-height:1.2; }
+.coach-title{ font-size:13px; color:var(--secondary); margin-top:2px; }
+.coach-base{ font-size:12.5px; color:var(--muted); margin-top:1px; }
+
+.coach-lived{
+  font-size:14.2px; color:var(--body); line-height:1.5;
+  border-left:3px solid var(--brand-light); padding-left:12px; margin-bottom:16px;
+}
+.coach-chips{ display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; }
+.chip{
+  font-size:12.5px; font-weight:600; color:var(--body);
+  background:var(--border-light); border-radius:50px; padding:5px 11px;
+  display:inline-flex; align-items:center; gap:6px;
+}
+.chip i{ font-size:11px; color:var(--brand); }
+
+.network-note{
+  margin-top:34px; text-align:center;
+  font-size:15px; color:var(--secondary);
+}
+
+/* ══════════════════════════════════════════════
+   THREE WAYS WE FUND IT
+   ══════════════════════════════════════════════ */
+.paths{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.path{
+  display:flex; flex-direction:column;
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:32px 30px; box-shadow:var(--shadow);
+  transition:.2s;
+}
+.path:hover{ box-shadow:var(--shadow-md); transform:translateY(-2px); }
+.path-icon{
+  width:52px; height:52px; border-radius:15px; margin-bottom:20px;
+  display:flex; align-items:center; justify-content:center; font-size:21px;
+  background:var(--brand-bg); color:var(--brand-dark);
+}
+.path:nth-child(2) .path-icon{ background:var(--give-tint); color:var(--give-dark); }
+.path:nth-child(3) .path-icon{ background:var(--warm-2); color:#a63a5c; }
+.path h3{ font-size:1.24rem; margin:0 0 10px; }
+.path p{ font-size:15.2px; color:var(--secondary); margin-bottom:20px; }
+.path ul{ list-style:none; padding:0; margin:0 0 24px; }
+.path li{
+  font-size:14.6px; color:var(--body); padding:7px 0 7px 26px; position:relative;
+}
+.path li::before{
+  content:'\f00c'; font-family:'Font Awesome 6 Free'; font-weight:900;
+  position:absolute; left:0; top:8px; font-size:11.5px; color:var(--give);
+}
+.path-go{
+  margin-top:auto; font-weight:600; font-size:15px; color:var(--brand);
+  display:inline-flex; align-items:center; gap:9px;
+}
+.path-go:hover{ color:var(--brand-dark); gap:13px; }
+.path-go i{ transition:.18s; }
+
+/* ══════════════════════════════════════════════
+   PRICING · the value stack, then the zero
+   ══════════════════════════════════════════════ */
+.price-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:26px; align-items:stretch; }
+
+.price-stack{
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+  box-shadow:var(--shadow); overflow:hidden;
+}
+.price-stack h3{
+  font-size:1.02rem; margin:0;
+  padding:20px 28px; border-bottom:1px solid var(--border-light);
+}
+.price-row{
+  display:flex; align-items:flex-start; gap:18px;
+  padding:15px 28px; border-bottom:1px solid var(--border-light);
+}
+.price-row:last-of-type{ border-bottom:0; }
+.price-what{ flex:1; }
+.price-what b{ display:block; font-size:15px; font-weight:600; color:var(--ink); }
+.price-what span{ display:block; font-size:13.4px; color:var(--secondary); margin-top:3px; }
+.price-else{
+  flex-shrink:0; text-align:right; font-size:14.6px; font-weight:600; color:var(--secondary);
+  white-space:nowrap; padding-top:1px;
+}
+.price-total{
+  display:flex; align-items:center; justify-content:space-between; gap:18px;
+  padding:18px 28px; background:var(--bg); border-top:1px solid var(--border);
+}
+.price-total b{ font-size:15.5px; color:var(--ink); }
+.price-total span{ font-size:1.14rem; font-weight:700; color:var(--ink); }
+
+/* The whole point of the section, so it gets the weight */
+.price-free{
+  display:flex; flex-direction:column; justify-content:center; text-align:center;
+  background:var(--give-tint); border:1px solid #c9ece0; border-radius:var(--radius);
+  padding:38px 30px;
+}
+.price-free .kicker{
+  font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.12em;
+  color:var(--give-dark);
+}
+.price-free .zero{
+  font-size:clamp(3.2rem,7vw,4.4rem); font-weight:700; letter-spacing:-.04em;
+  color:var(--give-dark); line-height:1; margin:12px 0 6px;
+}
+.price-free h3{ font-size:1.2rem; margin:0 0 10px; color:var(--give-dark); }
+.price-free p{ font-size:14.8px; color:#2f6b57; margin:0 0 22px; }
+.price-free .btn-fc{ align-self:center; }
+.price-free .fineprint{ font-size:13.2px; color:#3f7f69; margin:16px 0 0; }
+
+/* ══════════════════════════════════════════════
+   FOR FAMILIES
+   ══════════════════════════════════════════════ */
+.fam-grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:52px; align-items:start; }
+.fam-list{ list-style:none; padding:0; margin:0; }
+.fam-list li{
+  display:flex; gap:14px; padding:14px 0;
+  border-bottom:1px solid var(--border-light); font-size:15.4px; color:var(--body);
+}
+.fam-list li:last-child{ border-bottom:0; }
+.fam-list i{ color:var(--give); font-size:15px; margin-top:4px; flex-shrink:0; }
+
+.quote{
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:34px 32px; box-shadow:var(--shadow);
+}
+/* not .mark: Bootstrap owns that one and paints it highlight yellow */
+.quote-mark{ font-size:34px; color:var(--brand-light); line-height:1; margin-bottom:12px; }
+.quote blockquote{ font-size:1.12rem; color:var(--ink); line-height:1.55; margin:0 0 18px; }
+.quote cite{ font-size:14px; color:var(--secondary); font-style:normal; font-weight:600; }
+
+/* Keeps the primary call to action within two sections of anywhere on the page */
+.sec-cta{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+  gap:10px 20px; margin-top:46px;
+}
+.sec-cta span{ font-size:14.6px; color:var(--secondary); }
+
+/* ══════════════════════════════════════════════
+   FREE RESOURCES
+   ══════════════════════════════════════════════ */
+.resources{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+.resource{
+  display:flex; gap:20px; align-items:flex-start;
+  background:var(--bg); border:1px solid var(--border); border-radius:var(--radius);
+  padding:26px 26px;
+}
+.sec-tint .resource{ background:var(--bg); }
+.resource-icon{
+  width:50px; height:50px; border-radius:13px; flex-shrink:0;
+  background:var(--warm-1); color:#b06a2c;
+  display:flex; align-items:center; justify-content:center; font-size:19px;
+}
+.resource h3{ font-size:1.06rem; margin:0 0 7px; }
+.resource p{ font-size:14.6px; color:var(--secondary); margin-bottom:14px; }
+.resource a{ font-weight:600; font-size:14.5px; color:var(--brand); display:inline-flex; align-items:center; gap:8px; }
+.resource a:hover{ color:var(--brand-dark); }
+
+/* ══════════════════════════════════════════════
+   CLOSING CTA
+   ══════════════════════════════════════════════ */
+.closer{
+  text-align:center; padding:74px 0;
+  background:
+    radial-gradient(900px 400px at 20% 0%, var(--warm-1) 0%, transparent 60%),
+    radial-gradient(900px 400px at 85% 10%, var(--warm-3) 0%, transparent 60%);
+}
+.closer h2{ font-size:clamp(1.7rem,3.1vw,2.4rem); margin:14px 0 14px; }
+.closer p{ color:var(--secondary); font-size:1.06rem; max-width:600px; margin:0 auto 28px; }
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════ */
+@media (max-width:991px){
+  .steps{ grid-template-columns:repeat(2,1fr); row-gap:34px; }
+  .step:nth-child(2)::after{ display:none; }
+  .paths,.pillars{ grid-template-columns:1fr; }
+  .fam-grid,.price-grid{ grid-template-columns:1fr; gap:34px; }
+  .resources{ grid-template-columns:1fr; }
+}
+
+@media (max-width:575px){
+  .sec{ padding:52px 0; }
+  .hero{ padding:38px 0 32px; }
+  .steps{ grid-template-columns:1fr; }
+  .step::after{ display:none !important; }
+  .trust-logos{ gap:22px 32px; }
+  .trust-logos img{ height:40px; }
+  .hero-actions .btn-fc{ width:100%; justify-content:center; }
+}
