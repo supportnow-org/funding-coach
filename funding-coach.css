@@ -106,7 +106,7 @@ section[id]{ scroll-margin-top:88px; }
 /* ══════════════════════════════════════════════
    HOW MATCHING WORKS
    ══════════════════════════════════════════════ */
-.steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; counter-reset:step; }
+.steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; counter-reset:step; }
 .step{ position:relative; padding-top:52px; }
 .step::before{
   counter-increment:step; content:counter(step);
@@ -292,8 +292,8 @@ section[id]{ scroll-margin-top:88px; }
 
 /* Keeps the primary call to action within two sections of anywhere on the page */
 .sec-cta{
-  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
-  gap:10px 20px; margin-top:46px;
+  display:flex; flex-direction:column; align-items:center;
+  gap:13px; margin-top:46px;
 }
 .sec-cta span{ font-size:14.6px; color:var(--secondary); }
 
@@ -333,18 +333,20 @@ section[id]{ scroll-margin-top:88px; }
    RESPONSIVE
    ══════════════════════════════════════════════ */
 @media (max-width:991px){
-  .steps{ grid-template-columns:repeat(2,1fr); row-gap:34px; }
-  .step:nth-child(2)::after{ display:none; }
   .paths,.pillars{ grid-template-columns:1fr; }
   .fam-grid,.price-grid{ grid-template-columns:1fr; gap:34px; }
   .resources{ grid-template-columns:1fr; }
 }
 
+/* Three steps go straight from a row to a stack. Two columns would orphan the third. */
+@media (max-width:767px){
+  .steps{ grid-template-columns:1fr; row-gap:30px; }
+  .step::after{ display:none; }
+}
+
 @media (max-width:575px){
   .sec{ padding:52px 0; }
   .hero{ padding:38px 0 32px; }
-  .steps{ grid-template-columns:1fr; }
-  .step::after{ display:none !important; }
   .trust-logos{ gap:22px 32px; }
   .trust-logos img{ height:40px; }
   .hero-actions .btn-fc{ width:100%; justify-content:center; }
