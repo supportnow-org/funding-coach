@@ -1,0 +1,75 @@
+/* ──────────────────────────────────────────────
+   Switcher v2 — leads with the core product's featuresets, each in its
+   own colour, then the platform apps underneath.
+   Loaded on top of shell.css by index.html and dropdown-v2.html.
+   ────────────────────────────────────────────── */
+
+.pf-mega.is-v2{ width:min(720px, calc(100vw - 40px)); }
+.is-v2 .pf-mega-main{ padding:0; gap:0; }
+
+/* ── Section chrome ── */
+/* Second section drops its top padding so the two groups sit close
+   together; with no rule between them 32px read as a hole. */
+.v2-sec{ padding:14px 18px; }
+.v2-sec + .v2-sec{ padding-top:0; }
+
+/* ── Featuresets: two up, each carrying its own colour ── */
+.v2-features{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:8px; }
+.v2-feature{
+  display:flex; align-items:flex-start; gap:13px;
+  padding:13px 14px;
+  border:1px solid var(--border-light); border-radius:13px;
+  background:var(--card);
+  transition:.16s ease;
+}
+.v2-feature:hover{
+  background:var(--f-tint);
+  border-color:var(--f-base);
+  transform:translateY(-1px);
+}
+.v2-feature-ico{
+  flex:0 0 36px; width:36px; height:36px;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:10px; font-size:15px;
+  background:var(--f-tint); color:var(--f-base);
+  transition:.16s ease;
+}
+.v2-feature:hover .v2-feature-ico{ background:var(--f-base); color:#fff; }
+.v2-feature-name{
+  display:block; font-size:16px; font-weight:700;
+  letter-spacing:-.02em; color:var(--ink); line-height:1.2;
+}
+.v2-feature-desc{
+  margin:3px 0 0; font-size:12.5px; line-height:1.45; color:var(--secondary);
+}
+.v2-feature.is-current{ background:var(--f-tint); border-color:var(--f-base); }
+.v2-feature.is-current .v2-feature-ico{ background:var(--f-base); color:#fff; }
+
+/* ── Platform apps: quieter, so the featuresets lead ── */
+.v2-apps{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:2px 12px; }
+.v2-app{
+  display:flex; align-items:center; gap:12px;
+  padding:9px 12px; border-radius:9px;
+  transition:background .14s ease;
+}
+.v2-app:hover{ background:var(--border-light); }
+.v2-app i{ flex:0 0 26px; text-align:center; font-size:16px; color:var(--brand); }
+/* Its own class, not `.v2-app span`, which would also catch the badge */
+.v2-app-name{ font-size:15px; font-weight:600; letter-spacing:-.01em; color:var(--ink); }
+.v2-app.is-current .v2-app-name{ color:var(--brand-dark); }
+.v2-here{
+  flex:0 0 auto; padding:3px 8px; border-radius:5px;
+  background:var(--brand-bg); color:var(--brand-dark);
+  font-size:9.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+}
+
+/* ── Platform bar, sitting above the two groups ── */
+/* Matches .v2-sec's horizontal padding, so the bar and the cards under it
+   share one edge. */
+.is-v2 .pf-mega-platform{ margin:14px 18px 0; }
+
+@media (max-width:640px){
+  .v2-features,
+  .v2-apps{ grid-template-columns:1fr; }
+  .v2-feature-desc{ display:none; }
+}

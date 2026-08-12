@@ -1,6 +1,6 @@
 /* ──────────────────────────────────────────────
-   SupportNow · Portfolio Shell — the app registry.
-   One entry per portfolio app. This is the only file that
+   SupportNow · Platform Nav Shell — the app registry.
+   One entry per platform app. This is the only file that
    changes when an app is added, renamed, or retired.
 
    Per app:
@@ -9,6 +9,12 @@
      cta      the nav button
      footCta  the footer's primary call to action
      shareUrl what the footer's share field hands out
+
+   Colour: base / dark / tint. Giving, Meals, Todos and Updates carry the
+   SupportNow 2.0 design system values, matching features.js exactly. The
+   other five are a first pass, spaced around the wheel from those four and
+   from brand blue #188aec. Only header-v3 reads these; the other pages
+   ignore them.
    ────────────────────────────────────────────── */
 
 window.PF_APPS = [
@@ -16,6 +22,7 @@ window.PF_APPS = [
     key: 'grants',
     name: 'Grants',
     icon: 'fa-hand-holding-dollar',
+    base: '#0891b2', dark: '#0e7490', tint: '#ecfeff',
     desc: 'Funding built for small nonprofits, without the grant writer.',
     home: 'https://grants.supportnow.org/',
     shareUrl: 'https://supportnow.org/grants',
@@ -35,13 +42,15 @@ window.PF_APPS = [
     key: 'fundingcoach',
     name: 'FundingCoach',
     icon: 'fa-compass',
+    base: '#4f46e5', dark: '#4338ca', tint: '#eef2ff',
     desc: 'Free one-on-one coaching through the whole fundraising journey.',
     home: 'index.html',
     shareUrl: 'https://supportnow.org/fundingcoach',
     links: [
       { label: 'About',    href: '#about' },
       { label: 'Families', href: '#families' },
-      { label: 'Grants',   href: '#grants' }
+      { label: 'Grants',   href: '#grants' },
+      { label: 'Pricing',  href: '#pricing' }
     ],
     cta: { label: 'Start Now', href: 'https://form.jotform.com/250483841777063' },
     footCta: {
@@ -54,8 +63,9 @@ window.PF_APPS = [
     key: 'podcast',
     name: 'Podcast',
     icon: 'fa-microphone-lines',
+    base: '#c026d3', dark: '#a21caf', tint: '#fdf4ff',
     desc: 'Conversations with families and the people who help them.',
-    home: '#',
+    home: 'https://supportnow.org/podcast',
     shareUrl: 'https://supportnow.org/podcast',
     links: [
       { label: 'Episodes', href: '#' },
@@ -73,6 +83,7 @@ window.PF_APPS = [
     key: 'advocacy',
     name: 'Advocacy',
     icon: 'fa-people-roof',
+    base: '#e11d48', dark: '#be123c', tint: '#fff1f2',
     desc: 'Advocates who have been exactly where you are.',
     home: 'https://supportnow-org.github.io/family-advocacy/',
     shareUrl: 'https://supportnow.org/advocacy',
@@ -92,8 +103,9 @@ window.PF_APPS = [
     key: 'emergency',
     name: 'Emergency Contact',
     icon: 'fa-shield-heart',
+    base: '#dc2626', dark: '#b91c1c', tint: '#fef2f2',
     desc: 'Everything a first responder needs about your child, on the fridge.',
-    home: '#',
+    home: 'https://supportnow.org/emergency',
     shareUrl: 'https://supportnow.org/emergency',
     links: [
       { label: 'Safety Score',   href: '#' },
@@ -111,8 +123,9 @@ window.PF_APPS = [
     key: 'giving',
     name: 'Giving',
     icon: 'fa-hand-holding-heart',
+    base: '#059669', dark: '#047857', tint: '#ecfdf5',
     desc: 'Invite your community into something that matters.',
-    home: '#',
+    home: 'https://supportnow.org/giving',
     shareUrl: 'https://supportnow.org/giving',
     links: [
       { label: 'How it Works',   href: '#' },
@@ -130,8 +143,9 @@ window.PF_APPS = [
     key: 'meals',
     name: 'Meals',
     icon: 'fa-utensils',
+    base: '#0d5da8', dark: '#0a4884', tint: '#e8f1fa',
     desc: 'A full calendar of dinners, coordinated for you.',
-    home: '#',
+    home: 'https://supportnow.org/meals',
     shareUrl: 'https://supportnow.org/meals',
     links: [
       { label: 'How it Works',   href: '#' },
@@ -149,8 +163,9 @@ window.PF_APPS = [
     key: 'todos',
     name: 'Todos',
     icon: 'fa-list-check',
+    base: '#f97316', dark: '#c2410c', tint: '#fff7ed',
     desc: 'Say what you need once, then let people claim it.',
-    home: '#',
+    home: 'https://supportnow.org/todos',
     shareUrl: 'https://supportnow.org/todos',
     links: [
       { label: 'How it Works', href: '#' },
@@ -168,8 +183,9 @@ window.PF_APPS = [
     key: 'updates',
     name: 'Updates',
     icon: 'fa-tower-broadcast',
+    base: '#8b5cf6', dark: '#7c3aed', tint: '#f5f3ff',
     desc: 'Tell everyone once, on your own terms.',
-    home: '#',
+    home: 'https://supportnow.org/updates',
     shareUrl: 'https://supportnow.org/updates',
     links: [
       { label: 'How it Works', href: '#' },
@@ -185,10 +201,12 @@ window.PF_APPS = [
   }
 ];
 
-/* Shown in the lower footer, the same for every app. */
+/* Shown in the lower footer, the same for every app.
+   Taken off supportnow.org's own footer. YouTube is deliberately absent:
+   the site links youtube.com with no channel, and @supportnow belongs to
+   someone else. Add it back once the real channel is known. */
 window.PF_SOCIAL = [
-  { label: 'Instagram', icon: 'fa-instagram', href: '#' },
-  { label: 'Facebook',  icon: 'fa-facebook-f', href: '#' },
-  { label: 'LinkedIn',  icon: 'fa-linkedin-in', href: '#' },
-  { label: 'YouTube',   icon: 'fa-youtube', href: '#' }
+  { label: 'Instagram', icon: 'fa-instagram',  href: 'https://www.instagram.com/supportnow_org/' },
+  { label: 'Facebook',  icon: 'fa-facebook-f', href: 'https://www.facebook.com/supportnoworg' },
+  { label: 'X',         icon: 'fa-x-twitter',  href: 'https://twitter.com/supportnoworg' }
 ];

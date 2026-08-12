@@ -1,16 +1,21 @@
 /* ──────────────────────────────────────────────
-   SupportNow · Portfolio Shell — live app build.
+   SupportNow · Platform Nav Shell — live app build.
 
    The shell's own shell.js also carries a demo swap that repoints the page at
    any app in the registry. A real app hardcodes its nav and footer in markup,
    so this build keeps only the four pieces the README calls load bearing:
    stick(), renderSwitcher(), renderSocial(), bindCopy().
+
+   Switcher v2: the core product's featuresets lead, each in its own colour,
+   then the platform apps that are their own product underneath.
    ────────────────────────────────────────────── */
 
 (function () {
   'use strict';
 
   var APPS = window.PF_APPS || [];
+  var FEATURES = window.PF_FEATURES || [];
+  var FEATURE_KEYS = FEATURES.map(function (f) { return f.key; });
   var CURRENT = 'fundingcoach';           // marks "You are here" in the switcher
 
   function esc(s) {
@@ -31,18 +36,40 @@
 
   /* ── App switcher: fills every copy, so nav and footer stay in step ── */
   function renderSwitcher() {
-    var html = APPS.map(function (a) {
-      var here = a.key === CURRENT;
-      return '' +
-        '<a href="' + esc(a.home) + '" data-key="' + esc(a.key) +
-           '" class="pf-mega-item' + (here ? ' is-current' : '') + '">' +
-          '<i class="fa-solid ' + esc(a.icon) + '"></i>' +
-          '<span class="pf-mega-name">' + esc(a.name) + '</span>' +
-          (here ? '<span class="pf-mega-here">You are here</span>' : '') +
-        '</a>';
-    }).join('');
-    each('.pf-switch-list', function (list) { list.innerHTML = html; });
+    /* The core product's featuresets, each carrying its own colour */
+    each('.v2-features', function (n) {
+      n.innerHTML = FEATURES.map(function (f) {
+        var here = f.key === CURRENT;
+        return '' +
+          '<a href="' + esc(f.home) + '" data-key="' + esc(f.key) +
+             '" class="v2-feature' + (here ? ' is-current' : '') + '"' +
+             ' style="--f-base:' + esc(f.base) + ';--f-tint:' + esc(f.tint) + '">' +
+            '<span class="v2-feature-ico"><i class="fa-solid ' + esc(f.icon) + '"></i></span>' +
+            '<span>' +
+              '<span class="v2-feature-name">' + esc(f.name) + '</span>' +
+              '<p class="v2-feature-desc">' + esc(f.desc) + '</p>' +
+            '</span>' +
+          '</a>';
+      }).join('');
+    });
 
+    /* Everything that is its own product */
+    each('.v2-apps', function (n) {
+      n.innerHTML = APPS.filter(function (a) {
+        return FEATURE_KEYS.indexOf(a.key) === -1;
+      }).map(function (a) {
+        var here = a.key === CURRENT;
+        return '' +
+          '<a href="' + esc(a.home) + '" data-key="' + esc(a.key) +
+             '" class="v2-app' + (here ? ' is-current' : '') + '">' +
+            '<i class="fa-solid ' + esc(a.icon) + '"></i>' +
+            '<span class="v2-app-name">' + esc(a.name) + '</span>' +
+            (here ? '<span class="v2-here">You are here</span>' : '') +
+          '</a>';
+      }).join('');
+    });
+
+    /* The offcanvas carries a plain list, since there is no room for the panel */
     var oc = el('pfOcApps');
     if (oc) {
       oc.innerHTML = APPS.filter(function (a) { return a.key !== CURRENT; })
