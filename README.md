@@ -14,8 +14,8 @@ nav of About / Providers / Families / Grants / In!. Three things moved at once.
 and footer. DM Sans, brand blue, the mark and the app switcher.
 
 **The offer.** It is no longer just Abby. FundingCoach matches a family to a vetted coach from the
-network on two axes: **what they need to fund**, and **who has funded it before**. Abby is the
-founding coach rather than the brand. This is the substantive change, and it drives the new
+network on two axes: **what they need to fund**, and **who has come closest to funding it**. Abby is
+the founding coach rather than the brand. This is the substantive change, and it drives the new
 "How it works" and "The network" sections.
 
 **The scope.** Families only. The Providers and Nonprofits audience cards are gone, and so is
@@ -24,9 +24,11 @@ founding coach rather than the brand. This is the substantive change, and it dri
 The single Browse Grants block became **three funding paths**, because grants alone was never the
 whole answer: Fundraising (crowdfunding), Grants, and Advocacy. Most families work more than one.
 
-Kept from the old page: the headline, the four partner logos, both PDF lead magnets, and the
-JotForm intake (`250483841777063`) behind every Start Now. Dropped: the newsletter block and the
-"register your interest" form, both of which predate this relaunch.
+Kept from the old page: the headline, the four partner logos, and the JotForm intake
+(`250483841777063`) behind every Start Now. Dropped: the newsletter block, the "register your
+interest" form, and both PDF lead magnets, which are Abby's own rather than SupportNow's. In their
+place is a free tools section pointing at the accessible van planner, the grants database, and the
+advocate directory.
 
 Added since: a **Pricing** section and nav link, because free is the hardest claim on the page
 to believe.
@@ -47,12 +49,19 @@ into the offcanvas below 992px anyway.
 Coaching being free is the thing families disbelieve, so it is repeated rather than stated once:
 the hero note, the third About pillar, the whole **Pricing** section, the closer, and the footer.
 
-Pricing works as a value stack. The left column prices each piece of the work at what a paid
-consultant charges and totals it; the right column is a large `$0`. The point is not that the
-program is cheap, it is that the work is worth real money and families are not being asked for it.
+Pricing works as a value stack. The left column prices each piece of the work by the hour and
+totals it; the right column is a large `$0`. The point is not that the program is cheap, it is that
+the work is worth real money and families are not being asked for it.
 
-**Every dollar figure in that section is a placeholder** and needs your real numbers before this
-is public. They read as researched market rates and currently are not.
+**The rates are anchored to the advocate marketplace's own `rate` fields**, which cluster at $50 to
+$150/hr, with one listing at "$120/hr, or flat $600 per appeal". An earlier draft priced these as
+nonprofit grant-writing engagements ($2,000 per application), which is the wrong market: these are
+individual families filling out foundation assistance forms, not nonprofits writing proposals.
+
+**Free means the funding coaching, not everything the coach does.** Coaches are advocates who also
+sell IEP representation, insurance appeals, and the like. The `.price-scope` line under the `$0`
+names that boundary, and the free claims elsewhere on the page are scoped to the coaching rather
+than left open ended.
 
 ## The coach cards
 
@@ -91,20 +100,22 @@ means checking that run again.
 no photo and falls back to an initials avatar. **Partner logos hotlink** to the Advocacy Abby CDN,
 so they need real files before this goes anywhere permanent.
 
+**Match copy is hedged on purpose.** Coaches have funded care for their own families, but not
+necessarily the exact thing a given family is facing, so the page says "as close as we can" rather
+than claiming an exact match.
+
 **Every coach but Abby is fictional, and every campaign count is invented, Abby's included.** The
 prototype banner that used to say so has been removed, so nothing on the page flags it now.
 
 ## Still to decide
 
-**The pricing figures.** Placeholders, all five rows and the total.
+**The hour estimates.** The hourly rates come from the marketplace, but how many hours each
+activity takes is my estimate, as is the $700 to $2,000 total.
 
 **The campaign counts.** Placeholders, including Abby's.
 
 **Whether `Grants` is the right nav link.** The page has three funding paths, and the nav names
 one of them. `Funding` pointing at the whole section is the alternative.
-
-**The advocacy link** points at the sibling prototype folder, which works from `file://` but is not
-a real URL. Grants already points at the live `grants.supportnow.org`.
 
 **Nine apps in a two column switcher** leaves one cell hanging. A tenth app fixes it, or the last
 cell spans.

@@ -46,7 +46,7 @@ window.PF_APPS = [
     cta: { label: 'Start Now', href: 'https://form.jotform.com/250483841777063' },
     footCta: {
       head: 'Ready to fund what your child needs?',
-      desc: 'Tell us your situation once and we will match you with a coach who has funded it before.',
+      desc: 'Tell us your situation once and we will match you with the closest fit in the coaching network.',
       label: 'Start Now', href: 'https://form.jotform.com/250483841777063'
     }
   },

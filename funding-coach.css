@@ -270,7 +270,12 @@ section[id]{ scroll-margin-top:88px; }
 .price-free h3{ font-size:1.2rem; margin:0 0 10px; color:var(--give-dark); }
 .price-free p{ font-size:14.8px; color:#2f6b57; margin:0 0 22px; }
 .price-free .btn-fc{ align-self:center; }
-.price-free .fineprint{ font-size:13.2px; color:#3f7f69; margin:16px 0 0; }
+/* Names what the $0 does not cover, so the claim above it stays true */
+.price-scope{
+  font-size:13.4px; line-height:1.5; color:#2f6b57; margin:22px 0 0;
+  padding-top:18px; border-top:1px solid #c9ece0;
+}
+.price-free .fineprint{ font-size:13.2px; color:#3f7f69; margin:12px 0 0; }
 
 /* ══════════════════════════════════════════════
    FOR FAMILIES
@@ -303,7 +308,7 @@ section[id]{ scroll-margin-top:88px; }
 /* ══════════════════════════════════════════════
    FREE RESOURCES
    ══════════════════════════════════════════════ */
-.resources{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+.resources{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
 .resource{
   display:flex; gap:20px; align-items:flex-start;
   background:var(--bg); border:1px solid var(--border); border-radius:var(--radius);
